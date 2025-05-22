@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./src/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+  <body class="bg-white flex flex-row">
+    <div class="w-full h-screen flex flex-col">
+      <!-- Bagian header diperbaiki -->
+      <header
+        class="bg-orange-50 w-full h-24 flex items-center justify-between pr-4 pl-18 shadow-black drop-shadow-2xl float-start"
+      >
+        <h1 class="text-3xl flex justify-self-start font-bold text-red-400">
+          Dash
+        </h1>
+        <h1
+          class="text-3xl flex justify-self-start font-bold -ml-73 text-gray-900"
+        >
+          board
+        </h1>
+        <div
+          role="search"
+          class="flex items-center justify-center rounded-md bg-white w-1/2"
+        >
+          <input
+            type="text"
+            placeholder="Search..."
+            class="h-10 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button
+            class="bg-red-400 text-white px-3 py-2 rounded-md hover:bg-red-900"
+          >
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="flex items-center space-x-4">
+          <button
+            class="bg-red-400 text-white px-4 py-2 rounded-md hover:bg-red-900"
+          >
+            <i class="fa fa-bell" aria-hidden="true"></i>
+          </button>
+          <button
+            class="bg-red-400 text-white px-4 py-2 rounded-md hover:bg-red-900"
+          >
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+          </button>
+          <div>
+            <h4>Tuesday</h4>
+            <p
+              id="header-date"
+              class="text-blue-800 text-md font-medium underline text-center"
+            ></p>
+          </div>
+        </div>
+      </header>
+
+      <div class="pt-15 flex w-full h-screen">
+        <nav
+          class="h-auto w-120 mb-2 flex flex-col bg-red-400 rounded-br-xl rounded-tr-xl text-white relative"
+        >
+          <!-- Profile section -->
+          <div
+            class="flex flex-col items-center justify-center w-full pt-6 pb-4"
+          >
+            <div class="w-27 h-27 absolute rounded-full -top-10">
+              <img
+                src="https://randomuser.me/api/portraits/women/8.jpg"
+                alt="Profile"
+                class="w-full h-full border-2 object-cover rounded-full"
+              />
+            </div>
+            <h3 class="text-lg font-medium mt-15">Sundar Gurung</h3>
+            <p class="text-sm text-white/90">sundargurung360@gmail.com</p>
+          </div>
+
+          <!-- Menu items -->
+          <div class="flex-grow flex flex-col gap-1 px-4 py-2">
+            <a
+              href="#"
+              class="flex items-center bg-amber-50 text-red-400 font-bold text-xl rounded-xl gap-4 px-4 py-3"
+            >
+              <i class="fa fa-home" aria-hidden="true"></i>
+              <span>Dashboard</span>
+            </a>
+            <a
+              href="#"
+              class="flex items-center hover:bg-[rgba(255,255,255,0.3)] text-xl font-medium rounded-xl gap-6.5 px-6 py-3"
+            >
+              <i class="fa fa-exclamation" aria-hidden="true"></i>
+
+              <span>Vital Task</span>
+            </a>
+            <a
+              href="#"
+              class="flex items-center hover:bg-[rgba(255,255,255,0.3)] text-xl font-medium rounded-xl gap-4.5 px-4 py-3"
+            >
+              <i class="fa fa-tasks" aria-hidden="true"></i>
+              <span>My Task</span>
+            </a>
+
+            <a
+              href="#"
+              class="flex items-center hover:bg-[rgba(255,255,255,0.3)] text-xl font-medium rounded-xl gap-4.5 px-4 py-3"
+            >
+              <i class="fa fa-cog" aria-hidden="true"></i>
+              <span>Settings</span>
+            </a>
+            <a
+              href="#"
+              class="flex items-center hover:bg-[rgba(255,255,255,0.3)] text-xl font-medium rounded-xl gap-6 px-4.5 py-3"
+            >
+              <i class="fa fa-question" aria-hidden="true"></i>
+              <span>Help</span>
+            </a>
+          </div>
+
+          <!-- Logout section -->
+          <div class="mt-auto px-4 py-6">
+            <a
+              href="#"
+              class="flex items-center hover:bg-[rgba(255,255,255,0.3)] text-xl font-medium rounded-xl gap-4 px-4 py-3"
+            >
+              <i class="fa fa-sign-out" aria-hidden="true"></i>
+              <span>Logout</span>
+            </a>
+          </div>
+        </nav>
+
+        <!-- Mengganti flex-grow-2 menjadi flex-grow -->
+        <main class="flex flex-grow flex-row mx-10">
+          <div class="flex flex-col w-full h-full space-y-4">
+            <h1 class="text-5xl font-medium">Welcome back, Sundar 👋🏻</h1>
+
+            <div class="w-full h-full flex pl-6 py-2 gap-x-8">
+              <div
+                class="flex items-center justify-between bg-white h-full w-1/2 rounded-xl shadow-md"
+              >
+                <div
+                  class="flex flex-col items-center justify-center w-full h-full p-4 space-y-3"
+                >
+                  <div class="flex items-center justify-between w-full">
+                    <span class="flex items-center gap-1">
+                      <i class="fa fa-tasks" aria-hidden="true"></i>
+                      <h2 class="text-xl font-bold">My Tasks</h2></span
+                    >
+                    <button
+                      onclick="openAddTaskPopup()"
+                      class="cursor-pointer hover:text-red-400"
+                    >
+                      <i class="fa fa-plus" aria-hidden="true"></i>
+
+                      add task
+                    </button>
+                  </div>
+                  <div
+                    class="flex flex-col items-start justify-start w-full h-full mt-4"
+                  >
+                    <!-- Card -->
+                    <div
+                      id="task-card"
+                      class="w-full h-60 rounded-2xl p-6 border bg-white"
+                    >
+                      <div class="flex-col w-full h-full space-y-2 mr-5">
+                        <h1 id="judul" class="text-2xl font-bold"></h1>
+
+                        <p
+                          id="deskripsi"
+                          class="text-gray-900 text-xl line-clamp-3"
+                        ></p>
+
+                        <!-- Baris Priority, Status, Created -->
+                        <div
+                          class="flex justify-between items-center text-black text-sm gap-4 mt-13 flex-wrap"
+                        >
+                          <div class="flex gap-2">
+                            <span
+                              >Priority:
+                              <span
+                                id="priority"
+                                class="text-yellow-500 font-semibold"
+                              ></span
+                            ></span>
+                            <span
+                              >Status:
+                              <span
+                                id="status"
+                                class="text-red-500 font-semibold"
+                              ></span
+                            ></span>
+                          </div>
+                          <div class="flex gap-1 text-gray-400 text-sm">
+                            <span>Created on:</span>
+                            <span id="created-date"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Template task card (DISEMBUNYIKAN) -->
+                    <div
+                      id="task-card-template"
+                      class="w-full h-60 rounded-2xl p-6 border hidden bg-white"
+                    >
+                      <div class="flex-col w-full h-full space-y-2 mr-5">
+                        <h1 class="task-title text-2xl font-bold"></h1>
+
+                        <p
+                          class="task-desc text-gray-900 text-xl line-clamp-3"
+                        ></p>
+
+                        <div
+                          class="flex justify-between items-center text-black text-sm gap-4 mt-13 flex-wrap"
+                        >
+                          <div class="flex gap-2">
+                            <span>
+                              Priority:
+                              <span
+                                class="task-priority text-yellow-500 font-semibold"
+                              ></span>
+                            </span>
+                            <span>
+                              Status:
+                              <span
+                                class="task-status text-red-500 font-semibold"
+                              ></span>
+                            </span>
+                          </div>
+                          <div class="flex gap-1 text-gray-400 text-sm">
+                            <span>Created on:</span>
+                            <span class="task-date"></span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="flex flex-col items-start bg-white justify-start h-full w-1/2 rounded-lg space-y-8"
+              >
+                <div
+                  class="bg-white h-1/2 w-full flex flex-col rounded-md p-4 drop-shadow-xl"
+                >
+                  <h1 class="text-xl font-medium mb-3">Task Status</h1>
+                  <div
+                    class="flex items-center gap-x-10 justify-center w-full h-full px-4 py-2"
+                  >
+                    <div
+                      class="flex flex-wrap justify-center items-center gap-13 text-black"
+                    >
+                      <!-- Completed -->
+                      <div class="flex flex-col items-center w-40">
+                        <div class="relative w-full aspect-square">
+                          <svg class="w-full h-full" viewBox="0 0 100 100">
+                            <circle
+                              cx="50"
+                              cy="50"
+                              r="45"
+                              stroke="lightgray"
+                              stroke-width="10"
+                              fill="none"
+                            />
+                            <circle
+                              id="completedCircle"
+                              cx="50"
+                              cy="50"
+                              r="45"
+                              stroke="green"
+                              stroke-width="10"
+                              fill="none"
+                              stroke-dasharray="282.6"
+                              stroke-dashoffset="282.6"
+                              transform="rotate(-90 50 50)"
+                              style="transition: stroke-dashoffset 0.5s ease"
+                            />
+                            <text
+                              id="completedText"
+                              x="50"
+                              y="57"
+                              text-anchor="middle"
+                              font-size="20px"
+                              font-weight="bold"
+                            >
+                              0%
+                            </text>
+                          </svg>
+                        </div>
+                        <span class="mt-2 text-2xl text-black">Completed</span>
+                      </div>
+
+                      <!-- In Progress -->
+                      <div class="flex flex-col items-center w-40">
+                        <div class="relative w-full aspect-square">
+                          <svg class="w-full h-full" viewBox="0 0 100 100">
+                            <circle
+                              cx="50"
+                              cy="50"
+                              r="45"
+                              stroke="lightgray"
+                              stroke-width="10"
+                              fill="none"
+                            />
+                            <circle
+                              id="inProgressCircle"
+                              cx="50"
+                              cy="50"
+                              r="45"
+                              stroke="yellow"
+                              stroke-width="10"
+                              fill="none"
+                              stroke-dasharray="282.6"
+                              stroke-dashoffset="282.6"
+                              transform="rotate(-90 50 50)"
+                              style="transition: stroke-dashoffset 0.5s ease"
+                            />
+                            <text
+                              id="inProgressText"
+                              x="50"
+                              y="57"
+                              text-anchor="middle"
+                              font-size="20px"
+                              font-weight="bold"
+                            >
+                              0%
+                            </text>
+                          </svg>
+                        </div>
+                        <span class="mt-2 text-2xl text-black"
+                          >In Progress</span
+                        >
+                      </div>
+
+                      <!-- Not Started -->
+                      <div class="flex flex-col items-center w-40">
+                        <div class="relative w-full aspect-square">
+                          <svg class="w-full h-full" viewBox="0 0 100 100">
+                            <circle
+                              cx="50"
+                              cy="50"
+                              r="45"
+                              stroke="lightgray"
+                              stroke-width="10"
+                              fill="none"
+                            />
+                            <circle
+                              id="notStartedCircle"
+                              cx="50"
+                              cy="50"
+                              r="45"
+                              stroke="red"
+                              stroke-width="10"
+                              fill="none"
+                              stroke-dasharray="282.6"
+                              stroke-dashoffset="282.6"
+                              transform="rotate(-90 50 50)"
+                              style="transition: stroke-dashoffset 0.5s ease"
+                            />
+                            <text
+                              id="notStartedText"
+                              x="50"
+                              y="57"
+                              text-anchor="middle"
+                              font-size="20px"
+                              font-weight="bold"
+                            >
+                              0%
+                            </text>
+                          </svg>
+                        </div>
+                        <span class="mt-2 text-2xl text-black"
+                          >Not Started</span
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="bg-green-300 h-1/2 w-full drop-shadow-xl flex flex-col rounded-md p-4"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <div
+      id="add-task-popup"
+      class="fixed inset-0 bg-black/70 items-center justify-center z-50 hidden"
+    >
+      <div
+        class="bg-white p-10 rounded-lg flex-col shadow-lg h-1/2 w-1/2 overflow-auto relative"
+      >
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-2lx font-bold">Add Task</h2>
+          <button
+            id="add-task-popup"
+            class="underline cursor-pointer"
+            onclick="closeAddTaskPopup()"
+          >
+            Go Back
+          </button>
+        </div>
+        <div class="flex flex-col w-full gap-2">
+          <label for="Judul" class="block text-md font-medium text-black mb-1"
+            >Judul</label
+          >
+          <input
+            type="text"
+            id="input-judul"
+            name="judul"
+            class="border w-full border-gray-300 rounded-md px-4 py-2"
+          />
+
+          <label for="tanggal" class="block text-md font-medium text-black mb-1"
+            >Tanggal</label
+          >
+          <input
+            type="date"
+            id="tanggal"
+            name="tanggal"
+            class="border w-full border-gray-300 rounded-md px-4 py-2"
+          />
+
+          <div class="flex justify-start items-center gap-1 w-full">
+            <i
+              class="fa fa-circle text-[8px] mt-0.5 text-green-500"
+              aria-hidden="true"
+            ></i>
+            <p>Low</p>
+            <input
+              type="radio"
+              name="priority"
+              value="Low"
+              id="priority-low"
+              class="mr-6 ml-1 rounded-md mt-0.5 w-4 h-4"
+              placeholder="Input field"
+            />
+
+            <i
+              class="fa fa-circle text-[8px] mt-0.5 text-yellow-300"
+              aria-hidden="true"
+            ></i>
+            <p>Moderate</p>
+            <input
+              type="radio"
+              name="priority"
+              value="Moderate"
+              class="mr-6 ml-1 rounded-md mt-0.5 w-4 h-4"
+              placeholder="Input field"
+            />
+
+            <i
+              class="fa fa-circle text-[8px] mt-0.5 text-red-500"
+              aria-hidden="true"
+            ></i>
+            <p>Extreme</p>
+            <input
+              type="radio"
+              name="priority"
+              value="High"
+              class="mr-6 ml-1 rounded-md mt-0.5 w-4 h-4"
+              placeholder="Input field"
+            />
+          </div>
+          <label
+            for="deskripsi"
+            class="block text-md font-medium text-black mb-1"
+          >
+            Deskripsi
+          </label>
+          <div class="flex gap-4">
+            <textarea
+              id="input-deskripsi"
+              name="deskripsi"
+              class="border border-gray-300 w-full h-20 rounded-md"
+            ></textarea>
+          </div>
+
+          <button
+            onclick="submitTask()"
+            class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 mt-4"
+          >
+            Tambah Tugas
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      function setProgress(circleId, textId, percent) {
+        const radius = 45;
+        const circumference = 2 * Math.PI * radius;
+        const offset = circumference * (1 - percent / 100);
+        const circle = document.getElementById(circleId);
+        const text = document.getElementById(textId);
+
+        circle.style.strokeDasharray = circumference;
+        circle.style.strokeDashoffset = offset;
+        text.textContent = `${percent}%`;
+      }
+
+      setProgress("completedCircle", "completedText", 37);
+      setProgress("inProgressCircle", "inProgressText", 11);
+      setProgress("notStartedCircle", "notStartedText", 12);
+
+      function openAddTaskPopup() {
+        const popup = document.getElementById("add-task-popup");
+        popup.classList.remove("hidden");
+        popup.classList.add("flex");
+      }
+
+      function closeAddTaskPopup() {
+        const popup = document.getElementById("add-task-popup");
+        popup.classList.add("hidden");
+      }
+
+      function submitTask() {
+        const title = document.getElementById("input-judul")?.value?.trim();
+        const description = document
+          .getElementById("input-deskripsi")
+          ?.value?.trim();
+        const date = document.getElementById("tanggal")?.value;
+        const priority =
+          document.querySelector('input[name="priority"]:checked')?.value ||
+          "Low";
+
+        if (!title || !description || !date || !priority) {
+          showError("Semua field harus diisi!");
+          return;
+        }
+
+        const task = {
+          title,
+          description,
+          createdAt: date,
+          priority,
+          status: "Not Started",
+        };
+
+        addTaskCard(task);
+        showSuccessPopup();
+        closeAddTaskPopup(); // Tutup form setelah submit
+
+        // Reset form
+        document.getElementById("input-judul").value = "";
+        document.getElementById("input-deskripsi").value = "";
+        document.getElementById("tanggal").value = "";
+        document
+          .querySelectorAll('input[name="priority"]')
+          .forEach((el) => (el.checked = false));
+      }
+
+      function formatDate(dateString) {
+        const [day, month, year] = dateString.split("/");
+        const dateObj = new Date(`${year}-${month}-${day}`);
+        const options = { year: "numeric", month: "long", day: "numeric" };
+        return dateObj.toLocaleDateString("id-ID", options);
+      }
+
+      function getPriorityColor(priority) {
+        switch (priority) {
+          case "Low":
+            return "text-green-500";
+          case "Moderate":
+            return "text-yellow-500";
+          case "High":
+            return "text-red-500";
+          default:
+            return "text-gray-500";
+        }
+      }
+
+      function addTaskCard(task) {
+        // Ambil elemen card yang sudah ada
+        const taskCard = document.getElementById("task-card");
+        const clone = taskCard.cloneNode(true);
+
+        clone.classList.remove("hidden");
+        clone.removeAttribute("id"); // hapus ID agar tidak duplikat
+
+        // Isi elemen-elemen dalam card
+        taskCard.querySelector("#judul").textContent = task.title;
+        taskCard.querySelector("#deskripsi").textContent = task.description;
+        taskCard.querySelector("#priority").textContent = task.priority;
+        taskCard.querySelector("#status").textContent = "Not Started";
+        taskCard.querySelector("#created-date").textContent = formatDate(
+          task.createdAt
+        );
+
+        // Warna priority bisa ditentukan seperti ini:
+        const prioritySpan = taskCard.querySelector("#priority");
+        prioritySpan.classList.remove(
+          "text-yellow-500",
+          "text-red-500",
+          "text-green-500"
+        );
+        if (task.priority === "Low")
+          prioritySpan.classList.add("text-green-500");
+        else if (task.priority === "Moderate")
+          prioritySpan.classList.add("text-yellow-500");
+        else if (task.priority === "Extreme")
+          prioritySpan.classList.add("text-red-500");
+      }
+
+      function showError(message) {
+        const errorPopup = document.getElementById("error-popup");
+        errorPopup.textContent = message;
+        errorPopup.classList.remove("hidden", "opacity-0", "-translate-y-4");
+        errorPopup.classList.add("opacity-100", "translate-y-0");
+
+        setTimeout(() => {
+          errorPopup.classList.add("opacity-0", "-translate-y-4");
+          setTimeout(() => {
+            errorPopup.classList.add("hidden");
+          }, 300);
+        }, 3000);
+      }
+      function showSuccessPopup() {
+        const popup = document.getElementById("success-popup");
+        popup.classList.remove("hidden");
+
+        setTimeout(() => {
+          popup.classList.add("hidden");
+        }, 2000); // 2 detik
+      }
+    </script>
+    <div
+      id="error-popup"
+      class="hidden absolute z-1000 top-40 bg-red-100 text-red-700 px-4 py-2 rounded-md mb-4 transition-all duration-300 ease-in-out"
+    ></div>
+    <div
+      id="success-popup"
+      class="absolute hidden -10 left-1/2 bg-green-500 text-white px-4 py-2 rounded shadow z-1000"
+    >
+      Tugas berhasil ditambahkan!
+    </div>
+  </body>
+</html>
