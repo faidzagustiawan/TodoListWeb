@@ -72,10 +72,8 @@ Aplikasi dashboard to-do list berbasis HTML, JavaScript, dan Tailwind CSS. Diran
 
 ## 📸 Cuplikan Tampilan
 
-> *(Tambahkan screenshot aplikasi di sini jika ada)*
-
 ```markdown
-![Preview Aplikasi](path/to/screenshot.png)
+![Preview Aplikasi](src/dashboardToDoList.jpg)
 ```
 
 ## 📄 Lisensi
